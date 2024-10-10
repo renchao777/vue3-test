@@ -5,7 +5,7 @@
       <el-switch
         :style="{
           display: 'block',
-          '--el-switch-on-color': isDark ? '#152832' : '#0a0a0'
+          '--el-switch-on-color': isDark ? '#606266' : '#0a0a0'
         }"
         v-model="isDark"
         @change="setDarkMode"
