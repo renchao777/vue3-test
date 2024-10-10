@@ -69,7 +69,6 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .communications {
   padding: 20px;
-  background-color: #ffffff;
   height: 100%;
   &-header {
     text-align: right;
