@@ -1,4 +1,3 @@
-//import并覆盖对应变量 然后通过forward  export出去 对应vite.config.js中的additionalData
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
     'primary': (
@@ -19,8 +18,9 @@
     'info': (
       'base': #909399
     )
-  ),
-  // $button: (
-  //   'text-color': green
-  // )
+  )
+  // 如果需要，取消注释并适当定义 $button
+// $button: (
+//   'text-color': green
+// )
 );
