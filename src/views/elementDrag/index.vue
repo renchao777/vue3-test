@@ -24,6 +24,7 @@
           <el-table-column v-for="(day, index) in days" :key="index" :label="day" width="120">
             <template v-slot="{ row, $index }">
               <div
+                class="txcenter"
                 :style="getCellStyle(row[day])"
                 @dragover.prevent="onDragOver"
                 @dragleave="onDragLeave"
@@ -73,12 +74,11 @@ const tableData = reactive([
 // 定义获取单元格样式的方法，针对不同的课程显示不同的样式
 const getCellStyle = (subject) => {
   const subjectStyles = {
-    语文: { background: '#F8D7DA', color: 'black', textAlign: 'center' },
-    数学: { background: '#D4EDDA', color: 'black', textAlign: 'center' },
-    英语: { background: '#D1ECF1', color: 'black', textAlign: 'center' },
-    音乐: { background: '#FFF3CD', color: 'black', textAlign: 'center' },
-    政治: { background: '#C3E6CB', color: 'black', textAlign: 'center' },
-    历史: { background: '#E2E3E5', color: 'black', textAlign: 'center' }
+    语文: { background: '#F8D7DA' },
+    英语: { background: '#D1ECF1' },
+    音乐: { background: '#FFF3CD' },
+    政治: { background: '#C3E6CB' },
+    历史: { background: '#E2E3E5' }
   }
   return subjectStyles[subject] || { background: 'white', textAlign: 'center' }
 }
@@ -123,6 +123,9 @@ const onDrop = (event, day, rowIndex) => {
 <style lang="scss" scoped>
 .elementDrag {
   h1 {
+    text-align: center;
+  }
+  .txcenter {
     text-align: center;
   }
   &-con {
@@ -171,3 +174,40 @@ const onDrop = (event, day, rowIndex) => {
   padding: 20px 0;
 }
 </style>
+
+<!-- 要点总结 -->
+
+<!-- 1.在科目列表的每个 <li> 元素上设置 draggable="true"，使其可被拖拽
+
+2.拖拽开始 使用 @dragstart 事件监听，当开始拖拽时，
+调用 onDragStart 方法，将被拖拽科目的名称存储到 dataTransfer 对象中 -->
+
+<!-- const onDragStart = (event, subject) => {
+    event.dataTransfer.setData('subject', subject.name)
+  } -->
+
+<!-- 3. 课程表单元格设置 -->
+<!--在课程表的每个单元格中添加拖拽事件监听，允许用户将科目放入相应的单元格 -->
+<!-- 拖拽进入使用 @dragover.prevent 事件监听，防止默认行为并提供视觉反馈
+（如更改边框和背景色），调用 onDragOver 方法。 -->
+<!-- 
+const onDragOver = (event) => {
+    event.currentTarget.style.border = '2px dashed #000'
+    event.currentTarget.style.backgroundColor = '#f0f0f0'
+  } -->
+<!-- 拖拽离开使用 @dragleave 事件监听，调用 onDragLeave 方法清除视觉提示 -->
+
+<!-- const onDragLeave = (event) => {
+    event.currentTarget.style.removeProperty('border')
+    event.currentTarget.style.removeProperty('backgroundColor')
+  } -->
+
+<!-- 拖拽放下使用 @drop 事件监听，调用 onDrop 方法。当用户放下拖拽的科目时：
+从 dataTransfer 对象获取科目名称。
+检查目标单元格是否已存在课程，如果存在，则询问用户是否覆盖。
+如果用户确认，则更新单元格内容。 -->
+<!-- const onDrop = (event, day, rowIndex) => {
+    const subjectName = event.dataTransfer.getData('subject')
+    // 检查并更新单元格内容 // 更新单元格中的课程内容
+    tableData[rowIndex][day] = subjectName
+  } -->
