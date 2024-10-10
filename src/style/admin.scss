@@ -15,7 +15,9 @@ body {
     --el-text-color: inherit;
   }
 }
-
+li {
+  list-style: none;
+}
 .iconfont {
   font-size: inherit;
 }
@@ -382,5 +384,3 @@ html.dark .ep-empty {
   --el-empty-fill-color-8: #1c1d1f;
   --el-empty-fill-color-9: #18181a;
 }
-
-
