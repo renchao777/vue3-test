@@ -4,6 +4,8 @@
 */
 {
   "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "baseUrl": ".",
     "types": ["element-plus/global"],
     "lib": ["ESNext", "DOM"],

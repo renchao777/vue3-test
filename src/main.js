@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import i18n from './locales/index' // 引入国际化配置
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'normalize.css'
@@ -21,6 +22,7 @@ app.use(plugins)
 app.use(ElementPlus, {
   locale: zhCn
 })
+app.use(i18n) // 使用国际化插件
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
