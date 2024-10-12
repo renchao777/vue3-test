@@ -12,7 +12,7 @@
     <div class="news-item-con">
       <div v-for="(item, index) in newsList" :key="item.id">
         <article>
-          <h3>{{ item.title }}</h3>
+          <h4>{{ item.title }}</h4>
           <div class="description">
             <p>{{ item.description }}</p>
             <el-link type="primary" class="link">{{ item.linkText }}</el-link>
@@ -85,6 +85,10 @@ const newsList = ref([
   height: 40px;
   padding: 15px;
   box-sizing: border-box;
+  span {
+    color: #807777;
+    font-size: 14px;
+  }
 }
 
 .news-item-con {

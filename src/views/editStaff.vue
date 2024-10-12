@@ -36,7 +36,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import type { FormInstance, FormRules, FormProps } from 'element-plus'
+import type { FormInstance, FormProps } from 'element-plus'
 const labelPosition = ref<FormProps['labelPosition']>('right')
 interface RuleForm {
   name: string
@@ -52,13 +52,11 @@ const ruleForm = reactive<RuleForm>({
   salary: ''
 })
 const saveUser = () => {
-  // 将数据发送到列表页面
   if (window.opener) {
     const formData = { ...ruleForm }
     window.opener.postMessage(formData, '*')
   }
 
-  // 清空表单
   Object.keys(ruleForm).forEach((key) => (ruleForm[key] = ''))
 }
 </script>
